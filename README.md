@@ -41,3 +41,6 @@ Now, (e.g. using the Arduino IDE and Serial Monitor), when you enter the text **
  TODO - talk about limits on num registered commands
  TODO - talk about memory freed on destruction
  TODO - talk about void only
+ 
+ ### Notes
+ TODO - more detailed explination check .h file
