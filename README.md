@@ -63,7 +63,6 @@ void diagnosticMode() {
   SerialCommandCoordinator scc(Serial);
   scc.registerCommand("scaleTest", &scaleTest);
   scc.registerCommand("buttonTest", &buttonTest);
-
   scc.printCommandList();
 
   while (inDiagnosticMode) {
