@@ -40,7 +40,7 @@ SerialCommandCoordinator::~SerialCommandCoordinator() {
   }
 }
 
-bool SerialCommandCoordinator::recieveInput() {
+bool SerialCommandCoordinator::receiveInput() {
   uint8_t ndx = 0;
   bool newInput = false;
   char rc;
@@ -77,8 +77,8 @@ bool SerialCommandCoordinator::recieveInput() {
   return newInput && _inputValid;
 }
 
-bool SerialCommandCoordinator::recieveCommandInput() {
-  if (recieveInput()) {
+bool SerialCommandCoordinator::receiveCommandInput() {
+  if (receiveInput()) {
     return setSelectedFunction();
   }
   return false;
