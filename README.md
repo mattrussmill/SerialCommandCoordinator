@@ -32,7 +32,7 @@ void setup() {
 }
 
 void loop {
-  if (scc.recieveCommandInput()) {
+  if (scc.receiveCommandInput()) {
     scc.runSelectedCommand();
   }
 }
@@ -40,7 +40,7 @@ void loop {
 Now, (e.g. using the Arduino IDE and Serial Monitor), when you enter the text **lampTest** in the Serial Monitor, the function ```performLampTest()``` will execute each time the member function ```runSelectedCommand()``` is called. In the example above this will only occur once each time the registered command **lampTest** is entered.
 
 ### Setting an Exit Case
-There may be instances where it would be advantageous to return to the **recieveCommandInput** loop defined in the previous section. This is just one example of how to exit an operation back to a SerialCommandCoordinator loop, or even exit a SerialCommandCoordinator mode:
+There may be instances where it would be advantageous to return to the **receiveCommandInput** loop defined in the previous section. This is just one example of how to exit an operation back to a SerialCommandCoordinator loop, or even exit a SerialCommandCoordinator mode:
 ``` C++
 bool inDiagnosticMode = true;
 
@@ -66,7 +66,7 @@ void diagnosticMode() {
   scc.printCommandList();
 
   while (inDiagnosticMode) {
-    if (scc.recieveCommandInput()) {
+    if (scc.receiveCommandInput()) {
       scc.runSelectedCommand();
       scc.printCommandList();
     }
@@ -98,8 +98,8 @@ Note: There are plans to add a command list size to an overload of the class con
 SerialCommandCoordinator(Stream &device);
 SerialCommandCoordinator(Stream *device);
 virtual ~SerialCommandCoordinator();
-bool recieveInput();
-bool recieveCommandInput();
+bool receiveInput();
+bool receiveCommandInput();
 bool registerCommand(const char *command, const void (*function)(void));
 void runSelectedCommand();
 void printCommandList();
