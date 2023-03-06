@@ -21,23 +21,23 @@ class SerialCommandCoordinator
     SerialCommandCoordinator(Stream *device);
     virtual ~SerialCommandCoordinator();
 
-    // Checks if there is data available in the serial recieve buffer. If
+    // Checks if there is data available in the serial receive buffer. If
     // there is, it copies the data byte by byte into _inputBuffer until the 
     // predefined _endMarker is reached (preset to \n) and sets _inputValid to
     // true. If the serial stream would overflow _inputBufferSize, the
     // data is truncated (to _inputBufferSize - 2), and a null terminator is
     // appended at the end of the _inputBuffer (_inputBufferSize - 1) instead 
-    // of where _endMarker defines. The remaining data in the serial recieve
+    // of where _endMarker defines. The remaining data in the serial receive
     // buffer is emptied and _inputValid is set to false. Returns _inputValid
     // if new input data is available, else returns false. 
-    bool recieveInput();
+    bool receiveInput();
 
-    // First calls recieveInput. If receiveInput is successful, _inputBuffer
+    // First calls receiveInput. If receiveInput is successful, _inputBuffer
     // contains a valid string, attempts to set the selected command with
     // setSelectedFunction(). If successful, returns true and the selected
     // command can be run via runSelectedCommand(). If the command is not
     // recognized, no command will be pre-selected and returns false.
-    bool recieveCommandInput();
+    bool receiveCommandInput();
 
     // Given a null terminated string and function address, attempts to register
     // a command with its intended routine. It fails and returns false if the 
@@ -45,7 +45,7 @@ class SerialCommandCoordinator
     // or allocation of memory to store command fails. Returns true on success.
     bool registerCommand(const char *command, const void (*function)(void));
 
-    // If the last call to recieveCommandInput() is successful, will run the most
+    // If the last call to receiveCommandInput() is successful, will run the most
     // recently selected function matching a valid command from the _commandList.
     void runSelectedCommand();
 
